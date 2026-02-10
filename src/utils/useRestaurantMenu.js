@@ -7,18 +7,33 @@ const useRestaurantMenu = (resId) => {
 
     useEffect(() => {
         fetchMenu();
-    }, []);
+        // re-run if restaurant id changes
+    }, [resId]);
 
     const fetchMenu = async () => {
-        const data = await fetch(
-            MENU_API+resId+"&catalog_qa=undefined&submitAction=ENTER"
-        );
-    
-        const json = await data.json();
-    
-        setResInfo(json.data)
+        try {
+            const data = await fetch(
+                "https://namastedev.com/api/v1/listRestaurantMenu/" + resId
+            );
+
+            // Read as text first to guard against empty / non‑JSON responses
+            const text = await data.text();
+
+            if (!text) {
+                console.error("Empty response from menu API");
+                setResInfo(null);
+                return;
+            }
+
+            const json = JSON.parse(text);
+
+            setResInfo(json?.data ?? null);
+        } catch (err) {
+            console.error("Error fetching / parsing menu API", err);
+            setResInfo(null);
+        }
     };
-    
+
     return resInfo;
 }
 

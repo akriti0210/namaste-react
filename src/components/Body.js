@@ -22,17 +22,17 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch(
             // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            "https://namastedev.com/api/v1/listRestaurants"
         );
 
         const json = await data.json();
 
-        setRestaurantList(
-            json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        );
-        setFilteredRestaurantList(
-            json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-        );
+        const restaurants =
+            json?.data?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+
+        setRestaurantList(restaurants);
+        setFilteredRestaurantList(restaurants);
     }
 
     const onlineStatus = useOnlineStatus()
@@ -46,7 +46,7 @@ const Body = () => {
 
     const { loggedInUser, setUserName } = useContext(UserContext)
 
-    return restaurantList.length === 0 ? (
+    return restaurantList?.length === 0 ? (
         <Shimmer />
     ) : (
         <div className="body">
