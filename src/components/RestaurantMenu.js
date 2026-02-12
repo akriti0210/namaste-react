@@ -13,9 +13,8 @@ const RestaurantMenu = () => {
 
     const resInfo = useRestaurantMenu(resId);
 
-    const [showItem, setShowItem] = useState(false)
-
-    const [showIndex, setShowIndex] = useState()
+    // index of currently open category; null means all collapsed
+    const [showIndex, setShowIndex] = useState(null);
 
     // useEffect(() => {
     //     fetchMenu();
@@ -37,7 +36,7 @@ const RestaurantMenu = () => {
 
     if(resInfo === null) return <Shimmer /> 
 
-    const { name, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info;
+    const { name, cuisines, costForTwoMessage, id } = resInfo?.cards[2]?.card?.card?.info;
 
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
@@ -57,8 +56,11 @@ const RestaurantMenu = () => {
                 return <RestaurantCategory
                     key={category?.card?.card?.title}
                     data={category?.card?.card}
-                    showItem={index === showIndex ? true : false}
-                    setShowIndex={() => setShowIndex(index)}
+                    showItem={index === showIndex}
+                    setShowIndex={() =>
+                        setShowIndex(index === showIndex ? null : index)
+                    }
+                    restaurantId={id}
                 />
             })
             }
