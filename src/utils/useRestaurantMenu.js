@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
     const fetchMenu = async () => {
         try {
             const data = await fetch(
-                "https://namastedev.com/api/v1/listRestaurantMenu/" + resId
+                "http://localhost:1337/api/listRestaurantMenu/" + resId
             );
 
             // Read as text first to guard against empty / non‑JSON responses

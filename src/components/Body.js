@@ -23,7 +23,8 @@ const Body = () => {
         const data = await fetch(
             // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-            "https://namastedev.com/api/v1/listRestaurants"
+            // "https://namastedev.com/api/v1/listRestaurants"
+            "http://localhost:1337/api/listRestaurant"
         );
 
         const json = await data.json();
