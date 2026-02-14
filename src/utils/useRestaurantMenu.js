@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
     const fetchMenu = async () => {
         try {
             const data = await fetch(
-                "https://cuisinix-backend.onrender.com/api/listRestaurantMenu/" + resId
+                "https://cuisinix-backend.onrender.com/api/restaurant-menu/" + resId
             );
 
             // Read as text first to guard against empty / non‑JSON responses
