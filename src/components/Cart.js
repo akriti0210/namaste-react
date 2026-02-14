@@ -18,7 +18,7 @@ const Cart = () => {
     const uniqueCartItems = React.useMemo(() => {
         const map = new Map()
         for (const item of cartItem) {
-            const id = item?.card?.info?.id
+            const id = item?.card?.info?.resId
             if (!id) continue
             if (!map.has(id)) {
                 map.set(id, item)

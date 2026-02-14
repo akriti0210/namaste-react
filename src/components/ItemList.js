@@ -12,7 +12,7 @@ const ItemList = ({ items, restaurantId }) => {
   const [pendingItem, setPendingItem] = useState(null)
 
   const getItemQuantity = (itemId) => {
-    return cartItems.filter((i) => i?.card?.info?.id === itemId).length
+    return cartItems.filter((i) => i?.card?.info?.resId === itemId).length
   }
 
   const handleAddWithCheck = (item) => {
@@ -47,7 +47,7 @@ const ItemList = ({ items, restaurantId }) => {
     <div>
       <ul>
         {items.map(item => {
-          const itemId = item.card.info.id
+          const itemId = item.card.info.resId
           const quantity = getItemQuantity(itemId)
 
           return (

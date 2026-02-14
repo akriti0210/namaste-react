@@ -23,7 +23,7 @@ const cartSlice = createSlice({
         },
         decreaseItem: (state, action) => {
             const itemId = action.payload
-            const idx = state.items.findLastIndex((i) => i?.card?.info?.id === itemId)
+            const idx = state.items.findLastIndex((i) => i?.card?.info?.resId === itemId)
             if (idx !== -1) state.items.splice(idx, 1)
         },
         // orginalState = ["pizza"]

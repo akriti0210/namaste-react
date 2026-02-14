@@ -24,7 +24,7 @@ const Body = () => {
             // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             // "https://namastedev.com/api/v1/listRestaurants"
-            "https://cuisinix.onrender.com/api/restaurants"
+            "http://localhost:1337/api/restaurants/listRestaurants"
         );
 
         const json = await data.json();
@@ -95,8 +95,8 @@ const Body = () => {
                 {
                     filteredRestaurantList.map(restaurant =>
                         <Link
-                            key={restaurant.info.id}
-                            to={"/restaurants/" + restaurant.info.id}>
+                            key={restaurant.info.resId}
+                            to={"/restaurants/" + restaurant.info.resId}>
                             {/* if the restaurant is promoted then add a promoted label to it */}
                             {
                                 restaurant.info.isOpen ?
