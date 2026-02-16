@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_API } from "./constants";
+import { DOMAIN_URL, MENU_API } from "./constants";
 
 const useRestaurantMenu = (resId) => {
 
@@ -13,7 +13,7 @@ const useRestaurantMenu = (resId) => {
     const fetchMenu = async () => {
         try {
             const data = await fetch(
-                "http://localhost:3000/api/restaurants-menu/" + resId
+                DOMAIN_URL + "/restaurants-menu/" + resId
             );
 
             // Read as text first to guard against empty / non‑JSON responses

@@ -5,6 +5,7 @@ import Shimmer from './Shimmer';
 import { Link } from 'react-router';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import UserContext from '../utils/UserContext';
+import { DOMAIN_URL } from '../utils/constants';
 
 const Body = () => {
 
@@ -24,7 +25,7 @@ const Body = () => {
             // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             // "https://namastedev.com/api/v1/listRestaurants"
-            "http://localhost:3000/api/restaurants"
+            DOMAIN_URL + "/restaurants"
         );
 
         const json = await data.json();
