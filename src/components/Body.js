@@ -74,22 +74,12 @@ const Body = () => {
                         className='rounded-lg px-4 bg-gray-100'
                         onClick={() => {
                             const filteredResList = restaurantList.filter(
-                                res => res.info.avgRating > 4
+                                res => res.info.avgRating >= 4.5
                             );
-                            setRestaurantList(filteredResList);
-                            // resList = resList.filter(
-                            //     res => res.info.avgRating > 4
-                            // );
-                            // console.log(resList);
+                            setFilteredRestaurantList(filteredResList);
                         }}>
                         Top Rated Restaurants
                     </button>
-                </div>
-                <div className='flex items-center'>
-                    <label className='p-2'>User Name</label>
-                    <input className='border border-black'
-                        value={loggedInUser}
-                        onChange={(e) => setUserName(e.target.value)} />
                 </div>
             </div>
             <div className="flex flex-wrap">
