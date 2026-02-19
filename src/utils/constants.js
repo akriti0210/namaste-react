@@ -6,3 +6,5 @@ export const LOGO_URL = "https://img.freepik.com/premium-vector/beautiful-unique
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5355161&lng=77.3910265&restaurantId=";
 
 export const DOMAIN_URL ="https://restaurant-api-orcin.vercel.app/api"
+
+// export const DOMAIN_URL ="http://localhost:1234/api"
