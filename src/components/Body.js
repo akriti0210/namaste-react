@@ -195,15 +195,19 @@ const Body = () => {
                                                         query: `
                                                             query FilterRestaurants($sort: String) {
                                                                 filterRestaurants(sort: $sort) {
-                                                                    resId
-                                                                    name
-                                                                    cloudinaryImageId
-                                                                    avgRating
-                                                                    cuisines
-                                                                    locality
-                                                                    areaName
-                                                                    costForTwo
-                                                                    veg
+                                                                    info{
+                                                                        resId
+                                                                        name
+                                                                        cloudinaryImageId
+                                                                        avgRating
+                                                                        cuisines
+                                                                        locality
+                                                                        areaName
+                                                                        costForTwo
+                                                                        veg
+                                                                        sla{
+                                                                            deliveryTime}
+                                                                    }
                                                                 }
                                                             }
                                                         `,
